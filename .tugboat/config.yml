@@ -32,7 +32,7 @@ services:
         # Link the document root to the expected path. Tugboat uses /docroot
         # by default. So, if Drupal is located at any other path in your git
         # repository, change that here. This example links /web to the docroot
-        - ln -snf "${TUGBOAT_ROOT}" "${DOCROOT}"
+        - ln -snf "${TUGBOAT_ROOT}" "Druppy"
 
       # Commands that import files, databases,  or other assets. When an
       # existing preview is refreshed, the build workflow starts here,
@@ -41,7 +41,7 @@ services:
       update:
 
         # Use the tugboat-specific Drupal settings
-        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/"
+        - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "Druppy/sites/default/"
 
         # Generate a unique hash_salt to secure the site
         - echo "\$settings['hash_salt'] = '$(openssl rand -hex 32)';" >> "${DOCROOT}/sites/default/settings.local.php"
